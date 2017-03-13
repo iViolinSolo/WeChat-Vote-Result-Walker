@@ -128,6 +128,12 @@
 
 ![mac自带截图](https://github.com/BigDipper7/WeChat-Vote-Result-Walker/raw/master/doc/figure_vote_res.png)
 
+文件介绍：
+
+`fetch_data.py` : 处理当前目录类似于“vote_*.html”的文件，抽取投票信息，绘图
+
+`FileUtl.py` : 扫描列举当前目录下所有文件及文件夹的工具类
+
 
 #Thanks to
 ----------
