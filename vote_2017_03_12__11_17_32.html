@@ -1,0 +1,857 @@
+<!DOCTYPE html><!--headTrap<body></body><head></head><html></html>--><html><head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+        <title></title>
+        
+<link rel="stylesheet" href="//res.wx.qq.com/mmbizwap/en_US/htmledition/style/page/page_mp_vote2b1291.css">
+
+    </head>
+    <body class="en_US " ontouchstart="">
+        
+<script id="t_votes" type="text/html">
+    {if (del_flag==0)}
+    <div class="vote_form_inner {if has_vote}has_vote{/if} {if (is_expired||!is_login)}expired{/if}">
+        {if (!is_login)}
+        <p class="vote_error_tips">
+            <img src="http://mmbiz.qpic.cn/mmbiz/a5icZrUmbV8qLa7aVNndUPfGbulEZzxnibJIenSIdYk1faoKobuK70I9wWEXnGQjicG7L2LibJQCAPwMPP0IAvtY6g/0" alt="">很抱歉，请在手机微信登录投票
+        </p>
+		{else if (is_expired)}
+		<div class=" vote_frm_top">
+			<p class="vote_tips">投票已过期</p>
+		</div>
+		{/if}
+		
+        {each vote_subject as item idx}
+		<div class="vote_form_ele{if idx+1==vote_count} vote_form_ele_last{/if}"  id="img-content">
+			<h3 class="vote_title">{if vote_count>1}{idx+1}.{/if}{item.title}{if item.type==1}（单选）{else}（多选）{/if}</h3>
+			
+			<ul class="vote_option_list ">
+				{each item.options as subitem subidx}
+				<li class="vote_option">
+					
+					<input class="{if item.type==1}frm_radio{else}frm_checkbox{/if} js_vote" type="{if item.type==1}radio{else}checkbox{/if}" id="vote_{idx}_{subidx}" name="vote_{idx}" value="{subidx}" {if (has_vote || !is_login || is_expired )}disabled="disabled"{/if}>
+					
+					<label for="vote_{idx}_{subidx}" onclick="" class="{if item.type==1}frm_radio_label{else}frm_checkbox_label{/if} vote_option_title group">
+						{if subitem.url}
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            {if subitem.url.indexOf("http://mmsns.qpic.cn")>-1}
+                            <img class="preview" src="{subitem.url.replace(/\/0$/, '/0?wxfrom=101').replace(/\/0\?/, '/0?wxfrom=101&')}"/></span>
+                            {else}
+                            <img class="preview" src="{subitem.url.replace(/\/0$/, '/300?wxfrom=101').replace(/\/0\?/, '/300?wxfrom=101&')}"/></span>
+                            {/if}
+						</div>
+                        {/if}
+                        <span class="frm_option_word">{subitem.name} {if subitem.selected}(已选){/if}</span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">{subitem.cnt}票</span>
+						<span class="vote_result_meta tips vote_percent">{if item.total_cnt>0}{toFixed subitem.cnt*100/item.total_cnt}{else}0{/if}%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:{toFixed subitem.cnt*100/item.total_cnt}%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					{if subitem.url}
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="{subitem.url.replace(/\/0$/, '/300?wxfrom=101').replace(/\/0\?/, '/300?wxfrom=101&')}"/></span>
+					</div>
+					{/if}
+				</li>
+				{/each}
+			</ul>
+		</div>
+        {/each}
+        
+			{if (!is_expired&&is_login)}
+                {if !has_vote}
+				<div class="vote_tool_area vote_tool_area_btn">
+					<button id="js_btn" type="submit" class="btn btn_inline btn_primary btn_disabled">投票</button>
+				</div>
+                {else}
+				<div class="vote_tool_area">
+					<p class="vote_tips">你已投票</p>
+				</div>
+                {/if}
+            {/if}
+        
+    </div>
+    {/if}
+</script>
+<div id="js_form" action="javascript:return false;" class="vote_box form vote_form ">
+    <div class="vote_form_inner  expired">
+        
+        <p class="vote_error_tips">
+            <img src="http://mmbiz.qpic.cn/mmbiz/a5icZrUmbV8qLa7aVNndUPfGbulEZzxnibJIenSIdYk1faoKobuK70I9wWEXnGQjicG7L2LibJQCAPwMPP0IAvtY6g/0" alt="">很抱歉，请在手机微信登录投票
+        </p>
+		
+		
+        
+		<div class="vote_form_ele vote_form_ele_last" id="img-content">
+			<h3 class="vote_title">GamTalk演讲大赛投票（单选）</h3>
+			
+			<ul class="vote_option_list ">
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_0" name="vote_0" value="0" disabled="disabled">
+					
+					<label for="vote_0_0" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfra6J0w4H7KTJ54V2KT1aCjkIeSSqWUMnbvJBLRk4I7WA8zcS1CY3zzmg/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">王蕊 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">608票</span>
+						<span class="vote_result_meta tips vote_percent">3%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:3%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfra6J0w4H7KTJ54V2KT1aCjkIeSSqWUMnbvJBLRk4I7WA8zcS1CY3zzmg/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_1" name="vote_0" value="1" disabled="disabled">
+					
+					<label for="vote_0_1" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrakRic92nlib21Pfc0iaGIoNr6RAPywibRgbG87sIgxeWPD58CMDiaFrU4WZw/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">陆怡儿 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">516票</span>
+						<span class="vote_result_meta tips vote_percent">3%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:3%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrakRic92nlib21Pfc0iaGIoNr6RAPywibRgbG87sIgxeWPD58CMDiaFrU4WZw/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_2" name="vote_0" value="2" disabled="disabled">
+					
+					<label for="vote_0_2" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraicHtTNvzyO2X7j98Qh8zj5l1dU0egRPyAEfiaC1hOepDicVksicLU0gHNg/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">梁睿 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">184票</span>
+						<span class="vote_result_meta tips vote_percent">1%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:1%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraicHtTNvzyO2X7j98Qh8zj5l1dU0egRPyAEfiaC1hOepDicVksicLU0gHNg/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_3" name="vote_0" value="3" disabled="disabled">
+					
+					<label for="vote_0_3" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrazWps4bhiatkslv746OXMJNh68eu5OvG9Cic9DqO0fcoOvzlQqDbRCibgw/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">余欢庆 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">1252票</span>
+						<span class="vote_result_meta tips vote_percent">7%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:7%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrazWps4bhiatkslv746OXMJNh68eu5OvG9Cic9DqO0fcoOvzlQqDbRCibgw/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_4" name="vote_0" value="4" disabled="disabled">
+					
+					<label for="vote_0_4" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfradv6IdYILX04t5AyJyA6iaj52HvwpvpHfKwm3OoHBuLnpyaiaSbEJjK7Q/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">陈鸣秀 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">125票</span>
+						<span class="vote_result_meta tips vote_percent">0%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:0%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfradv6IdYILX04t5AyJyA6iaj52HvwpvpHfKwm3OoHBuLnpyaiaSbEJjK7Q/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_5" name="vote_0" value="5" disabled="disabled">
+					
+					<label for="vote_0_5" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrabqjDQFzdIgNTuicQbk53s84PwvJLYUD7DibKSSNzsCLwOZSPd9icbyHog/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">冯祥君 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">325票</span>
+						<span class="vote_result_meta tips vote_percent">2%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:2%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrabqjDQFzdIgNTuicQbk53s84PwvJLYUD7DibKSSNzsCLwOZSPd9icbyHog/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_6" name="vote_0" value="6" disabled="disabled">
+					
+					<label for="vote_0_6" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraMp5iaTt85nbs6X0fP97QXNib8fdr0Fgy11SEXyiagEbPGpLKdDaNxFR8w/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">魏文卓 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">720票</span>
+						<span class="vote_result_meta tips vote_percent">4%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:4%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraMp5iaTt85nbs6X0fP97QXNib8fdr0Fgy11SEXyiagEbPGpLKdDaNxFR8w/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_7" name="vote_0" value="7" disabled="disabled">
+					
+					<label for="vote_0_7" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraIggJXJS12O9Y6CIHyjllvODsMJbjJpZGgde5APLx6XQhmzcicGWTXDQ/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">蔡圣杰 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">4853票</span>
+						<span class="vote_result_meta tips vote_percent">30%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:30%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraIggJXJS12O9Y6CIHyjllvODsMJbjJpZGgde5APLx6XQhmzcicGWTXDQ/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_8" name="vote_0" value="8" disabled="disabled">
+					
+					<label for="vote_0_8" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfragHtmnVYdrWqeElfIHqq3MViazw55hXCApbl2vlWBX0uMM4Pvg1hLaQg/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">陈雅珺 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">4066票</span>
+						<span class="vote_result_meta tips vote_percent">25%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:25%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfragHtmnVYdrWqeElfIHqq3MViazw55hXCApbl2vlWBX0uMM4Pvg1hLaQg/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_9" name="vote_0" value="9" disabled="disabled">
+					
+					<label for="vote_0_9" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrajHbiaBgXIqRPyibw4o0CuCJyKFmQg3SvorSYycRcp7ic5EXo3kcneRsJA/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">朱怡 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">699票</span>
+						<span class="vote_result_meta tips vote_percent">4%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:4%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrajHbiaBgXIqRPyibw4o0CuCJyKFmQg3SvorSYycRcp7ic5EXo3kcneRsJA/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_10" name="vote_0" value="10" disabled="disabled">
+					
+					<label for="vote_0_10" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfradsRcVjkicGYlstibGwAHMemyO6jAX7uymGZI7yTiboQpjoXgT3IFaz1PQ/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">刘玺朦 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">504票</span>
+						<span class="vote_result_meta tips vote_percent">3%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:3%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfradsRcVjkicGYlstibGwAHMemyO6jAX7uymGZI7yTiboQpjoXgT3IFaz1PQ/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_11" name="vote_0" value="11" disabled="disabled">
+					
+					<label for="vote_0_11" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraIOycA8r88TyNibcE0r1Mcu9zibsB4HrAFiaM22R66VrOgn9nOxsznGcRg/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">张鸣阳 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">629票</span>
+						<span class="vote_result_meta tips vote_percent">3%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:3%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraIOycA8r88TyNibcE0r1Mcu9zibsB4HrAFiaM22R66VrOgn9nOxsznGcRg/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_12" name="vote_0" value="12" disabled="disabled">
+					
+					<label for="vote_0_12" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraWJK69A8fsbnqC7V67AMia7dmgBQqypLZVgXKc6PApBo0MJibMQvudLrg/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">顾铭轩 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">364票</span>
+						<span class="vote_result_meta tips vote_percent">2%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:2%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraWJK69A8fsbnqC7V67AMia7dmgBQqypLZVgXKc6PApBo0MJibMQvudLrg/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_13" name="vote_0" value="13" disabled="disabled">
+					
+					<label for="vote_0_13" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfral7vx41rD5vAlvRiaaCqm7PkwIxbv808E3siaz7ybeYN3ZtEyiagdibQZOw/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">翟玥 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">332票</span>
+						<span class="vote_result_meta tips vote_percent">2%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:2%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfral7vx41rD5vAlvRiaaCqm7PkwIxbv808E3siaz7ybeYN3ZtEyiagdibQZOw/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_14" name="vote_0" value="14" disabled="disabled">
+					
+					<label for="vote_0_14" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrabMHgMfxpC85Lap9ticZ8PwVOEA61yFEuzJqMeMLShZqcMttbJffgjYw/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">侯成溪 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">578票</span>
+						<span class="vote_result_meta tips vote_percent">3%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:3%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrabMHgMfxpC85Lap9ticZ8PwVOEA61yFEuzJqMeMLShZqcMttbJffgjYw/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+				<li class="vote_option">
+					
+					<input class="frm_radio js_vote" type="radio" id="vote_0_15" name="vote_0" value="15" disabled="disabled">
+					
+					<label for="vote_0_15" onclick="" class="frm_radio_label vote_option_title group">
+						
+						<div class="img_container img_container_label">
+							<span class="img_panel">
+                            
+                            <img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraT5xGwiaAVjWW2rns3ZbzULxoAZEziabYibOLnPppKKOvror5gBxBoPUDg/300?wxfrom=101&amp;wx_fmt=png"></span>
+                            
+						</div>
+                        
+                        <span class="frm_option_word">周佳玮 </span>
+					</label>
+					
+					<div class="vote_result">
+						<span class="vote_result_meta tips vote_number">408票</span>
+						<span class="vote_result_meta tips vote_percent">2%</span>
+						<div class="vote_result_meta vote_graph">
+							<span style="width:2%;background-color:#7DADE1" class="vote_progress"></span>
+						</div>
+					</div>
+					
+					
+					<div class="img_container img_container_btm">
+						<span class="img_panel"><img class="preview" src="http://mmbiz.qpic.cn/mmbiz_png/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraT5xGwiaAVjWW2rns3ZbzULxoAZEziabYibOLnPppKKOvror5gBxBoPUDg/300?wxfrom=101&amp;wx_fmt=png"></span>
+					</div>
+					
+				</li>
+				
+			</ul>
+		</div>
+        
+        
+			
+        
+    </div>
+    </div>
+
+        <script nonce="">
+    var __DEBUGINFO = {
+        debug_js : "//res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/debug/console2ca724.js",
+        safe_js : "//res.wx.qq.com/mmbizwap/en_US/htmledition/js/biz_wap/safe/moonsafe2f3e84.js",
+        res_list: []
+    };
+</script>
+
+<script nonce="">
+(function() {
+	function _addVConsole(uri) {
+		var url = '//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/' + uri;
+		document.write('<script nonce="" type="text/javascript" src="' + url + '"><\/script>');
+	}
+	if (
+		(document.cookie && document.cookie.indexOf('vconsole_open=1') > -1)
+		|| location.href.indexOf('vconsole=1') > -1
+	) {
+		_addVConsole('2.5.1/vconsole.min.js');
+		_addVConsole('plugin/vconsole-elements/1.0.2/vconsole-elements.min.js');
+		_addVConsole('plugin/vconsole-sources/1.0.1/vconsole-sources.min.js');
+		_addVConsole('plugin/vconsole-resources/1.0.0/vconsole-resources.min.js');
+		_addVConsole('plugin/vconsole-mpopt/1.0.0/vconsole-mpopt.js');
+	}
+})();
+</script>
+        
+<script type="text/javascript" src="//res.wx.qq.com/mmbizwap/en_US/htmledition/js/lib/zepto1f908d.js"></script>
+<script type="text/javascript" src="//res.wx.qq.com/mmbizwap/en_US/htmledition/js/common/template1b4b91.js"></script>
+<script type="text/javascript">
+    document.domain = "qq.com";
+    var biz = "MzIwMjcxMDkzNQ==";
+    var top = window.top || window.parent;
+
+    var reg = /^http(s)?\:\/\/mp\.weixin\.qq\.com\/s/g;
+    if (top == window || !/mp\.weixin\.qq\.com$/.test(top.location.host)){ 
+        //alert("非法投票来源！");
+    }
+
+    //弹出框中图片的切换
+    (function(){
+        var imgsSrc = [];
+        function reviewImage(src) {
+            if (typeof window.top.WeixinJSBridge != 'undefined') {
+                window.top.WeixinJSBridge.invoke('imagePreview', {
+                    'current' : src,
+                    'urls' : imgsSrc
+                });
+            }
+        }
+        function onImgLoad() {
+            var imgs = document.getElementsByTagName("img")||[];
+            for( var i=0,l=imgs.length; i<l; i=i+2){
+                var img = imgs.item(i);
+                var src = img.getAttribute('data-src') || img.getAttribute('src');
+
+                if( src ){
+                    if ( src.indexOf("http://mmbiz.qpic.cn") == 0){
+                        src = src.replace(/\/300$/, "/0");
+                        src = src.replace(/\/300\?/, "/0?");
+                    }
+                    imgsSrc.push(src);//大图预览的时候采用原图
+                    (function(src){
+                        if (img.addEventListener){
+                            img.addEventListener('click', function(){
+                                reviewImage(src);
+                            },false);
+                        }else if(img.attachEvent){
+                            img.attachEvent('click', function(){
+                                reviewImage(src);
+                            },false);
+                        }
+                    })(src);
+                }
+            }
+        }
+        if( window.addEventListener ){
+            window.addEventListener('load', onImgLoad, false);
+        }else if(window.attachEvent){
+            window.attachEvent('load', onImgLoad);
+            window.attachEvent('onload', onImgLoad);
+        }
+    })();   
+    function domload(){
+        template.helper("toFixed", function(num){
+            num = num.toString();
+            var idx = num.indexOf('.');
+            if (idx == -1){
+                return num;
+            }
+            return num.substr(0,idx);// + "." + num.substr(idx+1,2);
+        });
+        var Z = Zepto;
+        function afterVote(){
+            if(ret !== '0'){
+                return ;
+            }
+            Z("#js_form").html(template.render("t_votes", voteInfo));
+            if(top.iframe_reload){
+                top.iframe_reload(window);
+            }
+        }
+        afterVote();
+        
+        Z(".js_vote").change(function(){
+            if(Z(".js_vote:checked").length > 0){
+                Z("#js_btn").removeClass("btn_disabled");
+            }
+            else{
+                Z("#js_btn").addClass("btn_disabled");
+            }
+        });
+
+        var has_click_vote = false;
+        Z("#js_btn").click(function(){
+            if (!voteInfo.is_login || has_click_vote) {
+                return false;
+            }
+            var values = [];
+            //计算一共有几个投票
+            var len = subject.length;
+            for (var i = 0; i < len; i++) {
+                var temp = [],eles = $('input[name=vote_'+i+']:checked');
+
+                if(eles.length>0){
+                    $('input[name=vote_'+i+']:checked').each(function(index,ele){
+                        temp.push(ele.value);
+                    })
+                    values.push({
+                        vote_id : subject[i].vote_id,
+                        item_idx_list : {
+                            item_idx:temp
+                        }                          
+                    })
+                }else{
+                    alert('请先完成所有问题');
+                    return false;
+                }
+                    
+            };
+            //检查数据是否完整               
+            has_click_vote = true;
+            var _idx = '1',
+                _mid = '2247484332',
+                _wxtoken = '',
+                _reprint_ticket = '',
+                _source_mid = '',
+                _source_idx = '',
+                _data = {
+                    action:'vote',
+                    __biz:'MzIwMjcxMDkzNQ==',
+                    uin:'',
+                    key:'',
+                    pass_ticket:'',
+                    f:'json',
+                    json:JSON.stringify({
+                        "super_vote_item":values,
+                        "super_vote_id":voteInfo.super_vote_id
+                    })
+                };
+            _idx && (_data["idx"] = _idx);
+            _mid && (_data["mid"] = _mid);
+            _wxtoken && (_data["wxtoken"] = _wxtoken);
+            _reprint_ticket && (_data["reprint_ticket"] = _reprint_ticket);
+            _source_mid && (_data["source_mid"] = _source_mid);
+            _source_idx && (_data["source_idx"] = _source_idx);
+
+            Z.ajax({
+                url:'/mp/newappmsgvote',
+                data:_data,
+                dataType:'json',
+                type:'post',
+                success:function(res){
+                    if (res.base_resp && res.base_resp.ret == 0){
+                        //人数加1，selected修改为true                           
+                        for (var i = 0; i < subject.length; i++) {
+                            
+                            for (var j = 0; j < subject[i].options.length; j++) {                                    
+                                if($('input[name=vote_'+i+']').eq(j).is(':checked')){
+                                    subject[i].options[j].selected = true;
+                                    subject[i].options[j].cnt++;
+                                    subject[i].total_cnt ++;
+                                }                                    
+                            };
+                        };
+                        voteInfo.has_vote = 1;
+                        has_click_vote = false;
+                        afterVote();
+                    }else if(res.base_resp && res.base_resp.ret == -7){
+                        has_click_vote = false;
+                        alert('关注公众号后才可以投票');
+                    }else if(res.base_resp && res.base_resp.ret == -6){
+                        has_click_vote = false;
+                        alert('投票过于频繁，请稍后重试！');
+                    }else{
+                        has_click_vote = false;
+                        alert('投票失败，请稍后重试!');                        
+                    }
+                },
+                error:function(){
+                    has_click_vote = false;
+                    alert('投票失败，请稍后重试!');
+                }
+            });
+        });
+    }
+    function getParam(key, s){
+        var s = s || location.href;
+        var key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+        var match = s.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
+        return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+    }
+    var voteInfo={"title":"GamTalk演讲大赛投票","vote_permission":1,"expire_time":1489334100,"total_person":16163,"vote_subject":[{"type":1,"title":"GamTalk演讲大赛投票","options":[{"name":"王蕊","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfra6J0w4H7KTJ54V2KT1aCjkIeSSqWUMnbvJBLRk4I7WA8zcS1CY3zzmg\/0?wx_fmt=png","cnt":608,"selected":false},{"name":"陆怡儿","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrakRic92nlib21Pfc0iaGIoNr6RAPywibRgbG87sIgxeWPD58CMDiaFrU4WZw\/0?wx_fmt=png","cnt":516,"selected":false},{"name":"梁睿","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraicHtTNvzyO2X7j98Qh8zj5l1dU0egRPyAEfiaC1hOepDicVksicLU0gHNg\/0?wx_fmt=png","cnt":184,"selected":false},{"name":"余欢庆","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrazWps4bhiatkslv746OXMJNh68eu5OvG9Cic9DqO0fcoOvzlQqDbRCibgw\/0?wx_fmt=png","cnt":1252,"selected":false},{"name":"陈鸣秀","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfradv6IdYILX04t5AyJyA6iaj52HvwpvpHfKwm3OoHBuLnpyaiaSbEJjK7Q\/0?wx_fmt=png","cnt":125,"selected":false},{"name":"冯祥君","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrabqjDQFzdIgNTuicQbk53s84PwvJLYUD7DibKSSNzsCLwOZSPd9icbyHog\/0?wx_fmt=png","cnt":325,"selected":false},{"name":"魏文卓","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraMp5iaTt85nbs6X0fP97QXNib8fdr0Fgy11SEXyiagEbPGpLKdDaNxFR8w\/0?wx_fmt=png","cnt":720,"selected":false},{"name":"蔡圣杰","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraIggJXJS12O9Y6CIHyjllvODsMJbjJpZGgde5APLx6XQhmzcicGWTXDQ\/0?wx_fmt=png","cnt":4853,"selected":false},{"name":"陈雅珺","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfragHtmnVYdrWqeElfIHqq3MViazw55hXCApbl2vlWBX0uMM4Pvg1hLaQg\/0?wx_fmt=png","cnt":4066,"selected":false},{"name":"朱怡","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrajHbiaBgXIqRPyibw4o0CuCJyKFmQg3SvorSYycRcp7ic5EXo3kcneRsJA\/0?wx_fmt=png","cnt":699,"selected":false},{"name":"刘玺朦","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfradsRcVjkicGYlstibGwAHMemyO6jAX7uymGZI7yTiboQpjoXgT3IFaz1PQ\/0?wx_fmt=png","cnt":504,"selected":false},{"name":"张鸣阳","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraIOycA8r88TyNibcE0r1Mcu9zibsB4HrAFiaM22R66VrOgn9nOxsznGcRg\/0?wx_fmt=png","cnt":629,"selected":false},{"name":"顾铭轩","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraWJK69A8fsbnqC7V67AMia7dmgBQqypLZVgXKc6PApBo0MJibMQvudLrg\/0?wx_fmt=png","cnt":364,"selected":false},{"name":"翟玥","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfral7vx41rD5vAlvRiaaCqm7PkwIxbv808E3siaz7ybeYN3ZtEyiagdibQZOw\/0?wx_fmt=png","cnt":332,"selected":false},{"name":"侯成溪","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfrabMHgMfxpC85Lap9ticZ8PwVOEA61yFEuzJqMeMLShZqcMttbJffgjYw\/0?wx_fmt=png","cnt":578,"selected":false},{"name":"周佳玮","url":"http:\/\/mmbiz.qpic.cn\/mmbiz_png\/LFC8nNKicHysibMHIicm1yKejxXQmtWcfraT5xGwiaAVjWW2rns3ZbzULxoAZEziabYibOLnPppKKOvror5gBxBoPUDg\/0?wx_fmt=png","cnt":408,"selected":false}],"total_cnt":16163,"vote_id":444598551}],"super_vote_id":444598550,"del_flag":0};
+    var ret = '0';
+    var pass_ticket = "";
+    if(ret !== '0'){
+        alert('参数错误');       
+    }
+    else{
+       if(voteInfo){
+            
+
+            //判断是否已经过期
+            var expire_time = voteInfo.expire_time ? voteInfo.expire_time*1000 : 0;
+            voteInfo.is_expired = (expire_time - (+new Date()))>0 ? 0 : 1;//0表示没过期，1表示过期
+            //判断是否已经投过票
+            var subject = voteInfo.vote_subject;
+            voteInfo.vote_count = subject ? subject.length : 0;
+            var option  = subject[0]['options'],s_len = option.length;
+            var has_vote = false;
+            for (var i = 0; i < s_len; i++) {
+                if(option[i].selected == true){
+                    has_vote = true;
+                }
+            }
+            voteInfo.has_vote = has_vote;//0表示没有投过，1表示已经投过
+            //判断是否有登录态
+            voteInfo.is_login = 1 ? 0 : 1;//1表示有登录态，0表示没有登录态
+            //判断是否是粉丝
+//            //            voteInfo.is_fans = false; //false表示不是粉丝，true表示是粉丝
+//                        voteInfo.super_vote_id = voteInfo.super_vote_id ? voteInfo.super_vote_id : getParam('supervoteid');
+
+            //voteInfo = {"title":"12312313","vote_permission":1,"expire_time":1421510400,"total_person":0,"vote_subject":[{"type":1,"title":"1231","options":[{"name":"123","cnt":0,"selected":false},{"name":"123123","cnt":0,"selected":false}],"total_cnt":0,"vote_id":249},{"type":1,"title":"123","options":[{"name":"123","url":"http://mmbiz.qpic.cn/mmbiz/eDzkW7U0x16aN2YYibr1zoyIbNiboH4ySOxKE7EPn8xBX9ZMyuGibV8CzHPKWIdXYXWZBZDjeibzibVZuqx8MKubhnA/0","cnt":0,"selected":false},{"name":"123","url":"http://mmbiz.qpic.cn/mmbiz/eDzkW7U0x16aN2YYibr1zoyIbNiboH4ySOshMWVvvZgJBzwSh314y65iahROibxoTJDpKuY1EyjicphynmtZZwCIQag/0","cnt":0,"selected":false},{"name":"132","url":"http://mmbiz.qpic.cn/mmbiz/eDzkW7U0x16aN2YYibr1zoyIbNiboH4ySOnw8z0M7DapD2v8N7tNqfRbBafrkicQDV5VWtmAPIZrMO1OasDVcEHAQ/0","cnt":0,"selected":false}],"total_cnt":0,"vote_id":250}],"super_vote_id":151,"del_flag":0,"is_expired":0,"has_vote":false,"is_login":1,"is_fans":false};
+            !!domload && (domload());
+            domload = null;
+        } 
+
+    }         
+</script>
+
+    
+
+<!--tailTrap<body></body><head></head><html></html>-->
+</body></html>

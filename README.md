@@ -110,6 +110,25 @@
 总结：其实最大的收获是，找到了一个自动渲染js的python轮子，2.不看代码真坑爹 😢
 
 
+# 更新
+------
+新添加了一个画图代码，将所有处理的`html`文件，处理成`dict`，并存储在当前目录下的`result.txt`中。同时利用`matplotlib`进行画图，至于import的`numpy`的包，可以删掉
+
+1. 安装依赖：
+
+`$ pip install matplotlib` 
+
+2. run：
+
+`$ python fetch_data.py`
+
+其中有个坑就是`matplotlib`对中文支持不好，所以全部设置成`unicode`的了，最后结果如下图，利用`matplotlib`导出的图片文字不显示出来，貌似是因为没有设置字体，所以直接截图了：
+
+![导出结果](https://github.com/BigDipper7/WeChat-Vote-Result-Walker/raw/master/doc/figure_res.png)
+
+![mac自带截图](https://github.com/BigDipper7/WeChat-Vote-Result-Walker/raw/master/doc/figure_vote_res.png)
+
+
 #Thanks to
 ----------
 
